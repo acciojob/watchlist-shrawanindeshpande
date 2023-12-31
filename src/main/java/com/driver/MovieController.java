@@ -41,13 +41,13 @@ public class MovieController {
         return new ResponseEntity<>(director,HttpStatus.ACCEPTED);
     }
     @GetMapping("/get-movies-by-director-name/{director}")//get list of movies by particular director
-    public ResponseEntity<List<Movie>> getMoviesByDirectorName(@PathVariable("director")String name){
-        List<Movie> movieList=serObj.getMovieListByDirectorLogic(name);
+    public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable("director")String name){
+        List<String> movieList=serObj.getMovieListByDirectorLogic(name);
         return new ResponseEntity<>(movieList,HttpStatus.ACCEPTED);
     }
     @GetMapping("/get-all-movies")//to get list of movies
-    public ResponseEntity<List<Movie>> findAllMovies(){
-        List<Movie> movieList=serObj.getAllMoviesLogic();
+    public ResponseEntity<List<String>> findAllMovies(){
+        List<String> movieList=serObj.getAllMoviesLogic();
         return new ResponseEntity<>(movieList,HttpStatus.ACCEPTED);
     }
     @DeleteMapping("/delete-director-by-name")
