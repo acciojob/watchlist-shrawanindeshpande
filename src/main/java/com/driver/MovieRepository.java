@@ -78,4 +78,21 @@ public class MovieRepository {
     public List<Movie> getAllMovies(){
         return movieList;
     }
+    public void deleteMovieByDirectorFromDB(String name){
+        for(Director director:movieDB.keySet()){
+            if(name.equals(director.getName())){
+                for(Movie movie:movieDB.get(director)){
+                    movieList.remove(movie);
+                }
+                movieDB.remove(director);
+            }
+        }
+        return;
+    }
+    public void deleteALlDirectorsAndMovies(){
+        for(Director director:directorList){
+            deleteMovieByDirectorFromDB(director.getName());
+            directorList.remove(director);
+        }
+    }
 }

@@ -50,6 +50,17 @@ public class MovieController {
         List<Movie> movieList=serObj.getAllMoviesLogic();
         return new ResponseEntity<>(movieList,HttpStatus.ACCEPTED);
     }
+    @DeleteMapping("/delete-director-by-name")
+    public ResponseEntity<String>  deleteDirectorByName(@RequestParam("name")String name){
+       String response=serObj.deleteMoviesByDirector(name);
+       return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
+    }
+    @DeleteMapping("/delete-all-directors")
+    public ResponseEntity<String>  deleteAllDirectors(){
+        String response=serObj.deleteAllDirectorsAndMovies();
+        return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
+    }
+
 
 
 }

@@ -36,5 +36,13 @@ public class MovieService {
     public List<Movie> getAllMoviesLogic(){
         return repoObj.getAllMovies();
     }
+    public String deleteMoviesByDirector(String name){
+        repoObj.deleteMovieByDirectorFromDB(name);
+        return "Movies by "+name+" are deleted successfully!!";
+    }
+    public String deleteAllDirectorsAndMovies(){
+        repoObj.deleteALlDirectorsAndMovies();
+        return "All Directors are deleted successfully!!";
+    }
 
 }
